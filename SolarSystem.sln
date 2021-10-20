@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.31624.102
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi-2", "WebApi-2\WebApi-2.csproj", "{ED3D9F1E-2DE1-4CFA-9D6B-6D0FE4E5F12A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SolarSystem.Data", "SolarSystem.Data\SolarSystem.Data.csproj", "{63F57034-69D6-483E-805F-353930E5BE17}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", "{00DD374A-2644-4ECD-A679-C4EC6C9D46A8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{ED3D9F1E-2DE1-4CFA-9D6B-6D0FE4E5F12A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ED3D9F1E-2DE1-4CFA-9D6B-6D0FE4E5F12A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ED3D9F1E-2DE1-4CFA-9D6B-6D0FE4E5F12A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{63F57034-69D6-483E-805F-353930E5BE17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{63F57034-69D6-483E-805F-353930E5BE17}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{63F57034-69D6-483E-805F-353930E5BE17}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{63F57034-69D6-483E-805F-353930E5BE17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00DD374A-2644-4ECD-A679-C4EC6C9D46A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00DD374A-2644-4ECD-A679-C4EC6C9D46A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00DD374A-2644-4ECD-A679-C4EC6C9D46A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00DD374A-2644-4ECD-A679-C4EC6C9D46A8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

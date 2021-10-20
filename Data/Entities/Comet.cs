@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace SolarSystem.Data.Entities
+namespace Data.Entities
 {
     class Comet
     {
