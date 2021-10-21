@@ -1,6 +1,7 @@
 ﻿using Autofac;
 using Autofac.Integration.Mvc;
 using Autofac.Integration.WebApi;
+using Data;
 using Microsoft.Owin;
 using Owin;
 using Repository.UnitOfWorkRepositories;
@@ -28,8 +29,11 @@ namespace WebApi_2.App_Start
 
             // Register cac controller dang duoc khoi tao
             builder.RegisterControllers(Assembly.GetExecutingAssembly());
+            // Register web api controllers
+            builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
 
             builder.RegisterType<UnitOfWorkRepository>().As<IUnitOfWorkRepository>().InstancePerRequest();
+            builder.RegisterType<ApplicationContext>().AsSelf().InstancePerRequest();
 
             IContainer container = builder.Build();
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));

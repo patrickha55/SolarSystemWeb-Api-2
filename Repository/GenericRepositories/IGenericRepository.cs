@@ -17,7 +17,7 @@ namespace Repository.GenericRepositories
         /// <param name="includes">Optional</param>
         /// <returns>A list of objects</returns>
         Task<IList<T>> GetAllAsync(
-            Expression<Func<T, bool>> expression,
+            Expression<Func<T, bool>> expression = null,
             Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null,
             List<string> includes = null
             );
