@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Data.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
@@ -15,6 +16,12 @@ namespace Data.DTOs
         public string DistanceToTheSun { get; set; }
     }
 
+    public class BodyDetailDTO : BodyDTO
+    {
+        public Component Component { get; set; }
+        public Region Region { get; set; }
+    }
+
     public class ManageBodyDTO
     {
         [Required]
@@ -28,5 +35,8 @@ namespace Data.DTOs
         [Range(0.1, double.MaxValue)]
         [Display(Name = "Distance to the Sun")]
         public double DistanceToTheSun { get; set; }
+
+        public int ComponentId { get; set; }
+        public int RegionId { get; set; }
     }
 }
