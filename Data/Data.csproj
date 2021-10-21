@@ -57,6 +57,8 @@
     <Compile Include="Configurations\RegionConfiguration.cs" />
     <Compile Include="DBInitializers\ApplicationDBInitializer.cs" />
     <Compile Include="DTOs\BodyDTO.cs" />
+    <Compile Include="DTOs\ComponentDTO.cs" />
+    <Compile Include="DTOs\RegionDTO.cs" />
     <Compile Include="Entities\Body.cs" />
     <Compile Include="Entities\Comet.cs" />
     <Compile Include="Entities\Component.cs" />

@@ -30,13 +30,13 @@ namespace Repository.GenericRepositories
         /// <returns>A generic type object</returns>
         Task<T> Get(Expression<Func<T, bool>> expression, List<string> includes = null);
 
-        Task Create(T entity);
+        void Create(T entity);
 
         /// <summary>
         /// This method receive an object and tell ef to look up the any data in the db for changing
         /// </summary>
         /// <param name="entity">Object to update</param>
-        Task Update(T entity);
+        void Update(T entity);
 
         Task Delete(int id);
     }

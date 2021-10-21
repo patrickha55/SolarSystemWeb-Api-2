@@ -19,29 +19,74 @@ namespace Repository.GenericRepositories
             _db = _context.Set<T>();
         }
 
-        public Task<IList<T>> GetAll(System.Linq.Expressions.Expression<Func<T, bool>> expression, Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null, List<string> includes = null)
+        public async Task<IList<T>> GetAll(System.Linq.Expressions.Expression<Func<T, bool>> expression, Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null, List<string> includes = null)
         {
-            throw new NotImplementedException();
+            IQueryable<T> query = _db;
+
+            if (expression != null)
+            {
+                query = query.Where(expression);
+            }
+
+            if (includes != null)
+            {
+                foreach (var include in includes)
+                {
+                    query = query.Include(include);
+                }
+            }
+
+            if (orderBy != null)
+            {
+                query = orderBy(query);
+            }
+
+            return await query.AsNoTracking().ToListAsync();
         }
 
-        public Task<T> Get(System.Linq.Expressions.Expression<Func<T, bool>> expression, List<string> includes = null)
+        public async Task<T> Get(System.Linq.Expressions.Expression<Func<T, bool>> expression, List<string> includes = null)
         {
-            throw new NotImplementedException();
+            IQueryable<T> query = _db;
+
+            if (expression == null) throw new NullReferenceException("Please enter a field to search for.");
+
+            if(includes != null)
+            {
+                foreach (var include in includes)
+                {
+                    query = query.Include(include);
+                }
+            }
+
+            return await query.AsNoTracking().FirstOrDefaultAsync(expression);
         }
 
-        public Task Create(T entity)
+        public void Create(T entity)
         {
-            throw new NotImplementedException();
+            if (entity is null) throw new NullReferenceException("Entity is null.");
+
+            _db.Add(entity);
         }
 
-        public Task Delete(int id)
+        public async Task DeleteAsync(int id)
         {
-            throw new NotImplementedException();
+            if (id < 1) throw new Exception("Invalid id.");
+
+            var entity = await _db.FindAsync(id);
+
+            if (entity is null) throw new KeyNotFoundException("No entity with the current id.");
+
+            _db.Remove(entity);
+
         }
 
-        public Task Update(T entity)
+        public void Update(T entity)
         {
-            throw new NotImplementedException();
+            if (entity is null) throw new NullReferenceException("Entity is null.");
+
+            _db.Attach(entity);
+
+            _context.Entry(entity).State = EntityState.Modified;
         }
     }
 }

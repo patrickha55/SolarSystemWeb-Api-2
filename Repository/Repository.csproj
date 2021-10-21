@@ -54,6 +54,8 @@
     <Compile Include="GenericRepositories\GenericRepository.cs" />
     <Compile Include="GenericRepositories\IGenericRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UnitOfWorkRepositories\IUnitOfWorkRepository.cs" />
+    <Compile Include="UnitOfWorkRepositories\UnitOfWorkRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Data\Data.csproj">
