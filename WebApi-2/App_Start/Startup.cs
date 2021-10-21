@@ -1,11 +1,15 @@
 ﻿using Autofac;
 using Autofac.Integration.Mvc;
 using Autofac.Integration.WebApi;
+using AutoMapper;
+using AutoMapper.Contrib.Autofac.DependencyInjection;
 using Data;
+using Data.Configurations.AutoMapper;
 using Microsoft.Owin;
 using Owin;
 using Repository.UnitOfWorkRepositories;
 using System;
+using System.Collections.Generic;
 using System.Reflection;
 using System.Threading.Tasks;
 using System.Web.Http;
@@ -35,7 +39,22 @@ namespace WebApi_2.App_Start
             builder.RegisterType<UnitOfWorkRepository>().As<IUnitOfWorkRepository>().InstancePerRequest();
             builder.RegisterType<ApplicationContext>().AsSelf().InstancePerRequest();
 
+
+
+            builder.RegisterType<MapperInitializer>().As<Profile>();
+
+            builder.Register(c => new MapperConfiguration(cfg =>
+            {
+                foreach (var profile in c.Resolve<IEnumerable<Profile>>())
+                {
+                    cfg.AddProfile(profile);
+                }
+            })).AsSelf().SingleInstance();
+
+            builder.Register(c => c.Resolve<MapperConfiguration>().CreateMapper(c.Resolve)).As<IMapper>().InstancePerLifetimeScope();
+
             IContainer container = builder.Build();
+
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
 
             GlobalConfiguration.Configuration.DependencyResolver = new AutofacWebApiDependencyResolver((IContainer)container);
