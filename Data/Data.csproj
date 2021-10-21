@@ -61,9 +61,9 @@
     <Compile Include="Entities\Comet.cs" />
     <Compile Include="Entities\Component.cs" />
     <Compile Include="Entities\Region.cs" />
-    <Compile Include="Migrations\202110201346462_Initial.cs" />
-    <Compile Include="Migrations\202110201346462_Initial.designer.cs">
-      <DependentUpon>202110201346462_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\202110210146022_Initial.cs" />
+    <Compile Include="Migrations\202110210146022_Initial.designer.cs">
+      <DependentUpon>202110210146022_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -73,8 +73,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202110201346462_Initial.resx">
-      <DependentUpon>202110201346462_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202110210146022_Initial.resx">
+      <DependentUpon>202110210146022_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
