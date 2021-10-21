@@ -14,10 +14,6 @@ namespace Data.DTOs
         public double DistanceToTheSun { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
-    }
-
-    public class RegionDetailDTO : RegionDTO
-    {
         public IList<BodyDTO> Bodies { get; set; }
     }
 
