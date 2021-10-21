@@ -16,7 +16,7 @@ namespace Repository.GenericRepositories
         /// <param name="orderBy">Optional</param>
         /// <param name="includes">Optional</param>
         /// <returns>A list of objects</returns>
-        Task<IList<T>> GetAll(
+        Task<IList<T>> GetAllAsync(
             Expression<Func<T, bool>> expression,
             Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null,
             List<string> includes = null
@@ -28,7 +28,7 @@ namespace Repository.GenericRepositories
         /// <param name="expression">Lambda expression to filter out the information</param>
         /// <param name="includes">Additional information to include with this data (Optional)</param>
         /// <returns>A generic type object</returns>
-        Task<T> Get(Expression<Func<T, bool>> expression, List<string> includes = null);
+        Task<T> GetAsync(Expression<Func<T, bool>> expression, List<string> includes = null);
 
         void Create(T entity);
 
@@ -38,6 +38,6 @@ namespace Repository.GenericRepositories
         /// <param name="entity">Object to update</param>
         void Update(T entity);
 
-        Task Delete(int id);
+        Task DeleteAsync(int id);
     }
 }

@@ -19,7 +19,7 @@ namespace Repository.GenericRepositories
             _db = _context.Set<T>();
         }
 
-        public async Task<IList<T>> GetAll(System.Linq.Expressions.Expression<Func<T, bool>> expression, Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null, List<string> includes = null)
+        public async Task<IList<T>> GetAllAsync(System.Linq.Expressions.Expression<Func<T, bool>> expression, Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null, List<string> includes = null)
         {
             IQueryable<T> query = _db;
 
@@ -44,7 +44,7 @@ namespace Repository.GenericRepositories
             return await query.AsNoTracking().ToListAsync();
         }
 
-        public async Task<T> Get(System.Linq.Expressions.Expression<Func<T, bool>> expression, List<string> includes = null)
+        public async Task<T> GetAsync(System.Linq.Expressions.Expression<Func<T, bool>> expression, List<string> includes = null)
         {
             IQueryable<T> query = _db;
 
