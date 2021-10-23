@@ -44,7 +44,7 @@ namespace WebApi_2.Controllers
 
             if (body == null) return NotFound();
 
-            var bodyDTO = _mapper.Map<BodyDTO>(body);
+            var bodyDTO = _mapper.Map<BodyDetailDTO>(body);
 
             return Ok(bodyDTO);
         }

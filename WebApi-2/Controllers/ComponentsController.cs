@@ -40,11 +40,11 @@ namespace WebApi_2.Controllers
         [HttpGet]
         public async Task<IHttpActionResult> Get(int id)
         {
-            var component = await _unitOfWorkRepository.Components.GetAsync(c => c.Id == id);
+            var component = await _unitOfWorkRepository.Components.GetAsync(c => c.Id == id, new List<string> { "Bodies" });
 
             if (component == null) return NotFound();
 
-            var componentDTO = _mapper.Map<ComponentDTO>(component);
+            var componentDTO = _mapper.Map<ComponentDetailDTO>(component);
 
             return Ok(componentDTO);
         }
