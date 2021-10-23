@@ -44,11 +44,11 @@ namespace WebApi_2.Controllers
 
             try
             {
-                var region = await _unitOfWorkRepository.Regions.GetAsync(r => r.Id == id);
+                var region = await _unitOfWorkRepository.Regions.GetAsync(r => r.Id == id, new List<string> { "Bodies" });
 
                 if (region is null) return NotFound();
 
-                var regionDTO = _mapper.Map<RegionDTO>(region);
+                var regionDTO = _mapper.Map<RegionDetailDTO>(region);
 
                 return Ok(regionDTO);
             }

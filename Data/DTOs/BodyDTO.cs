@@ -16,8 +16,12 @@ namespace Data.DTOs
         public string DistanceToTheSun { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
-        public Component Component { get; set; }
-        public Region Region { get; set; }
+    }
+
+    public class BodyDetailDTO : BodyDTO
+    {
+        public ComponentDTO Component { get; set; }
+        public RegionDTO Region { get; set; }
     }
 
     public class ManageBodyDTO

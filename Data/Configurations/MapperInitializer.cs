@@ -14,10 +14,13 @@ namespace Data.Configurations.AutoMapper
         public MapperInitializer()
         {
             CreateMap<Region, RegionDTO>().ReverseMap();
+            CreateMap<Region, RegionDetailDTO>().ReverseMap();
             CreateMap<Region, ManageRegionDTO>().ReverseMap();
             CreateMap<Component, ComponentDTO>().ReverseMap();
+            CreateMap<Component, ComponentDetailDTO>().ReverseMap();
             CreateMap<Component, ManageComponentDTO>().ReverseMap();
             CreateMap<Body, BodyDTO>().ReverseMap();
+            CreateMap<Body, BodyDetailDTO>().ReverseMap();
             CreateMap<Body, ManageBodyDTO>().ReverseMap();
         }
     }
