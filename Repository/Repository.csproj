@@ -5,11 +5,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{00DD374A-2644-4ECD-A679-C4EC6C9D46A8}</ProjectGuid>
+    <ProjectGuid>{4FF00F16-5B93-49C9-93F7-30EF9845F8E4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Data</RootNamespace>
-    <AssemblyName>Data</AssemblyName>
+    <RootNamespace>Repository</RootNamespace>
+    <AssemblyName>Repository</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -34,9 +34,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AutoMapper, Version=10.0.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
-      <HintPath>..\packages\AutoMapper.10.1.1\lib\net461\AutoMapper.dll</HintPath>
-    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -54,34 +51,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApplicationContext.cs" />
-    <Compile Include="Configurations\BodyConfiguration.cs" />
-    <Compile Include="Configurations\ComponentConfiguration.cs" />
-    <Compile Include="Configurations\MapperInitializer.cs" />
-    <Compile Include="Configurations\RegionConfiguration.cs" />
-    <Compile Include="DBInitializers\ApplicationDBInitializer.cs" />
-    <Compile Include="DTOs\BodyDTO.cs" />
-    <Compile Include="DTOs\ComponentDTO.cs" />
-    <Compile Include="DTOs\RegionDTO.cs" />
-    <Compile Include="Entities\Body.cs" />
-    <Compile Include="Entities\Comet.cs" />
-    <Compile Include="Entities\Component.cs" />
-    <Compile Include="Entities\Region.cs" />
-    <Compile Include="Migrations\202110210146022_Initial.cs" />
-    <Compile Include="Migrations\202110210146022_Initial.designer.cs">
-      <DependentUpon>202110210146022_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="GenericRepositories\GenericRepository.cs" />
+    <Compile Include="GenericRepositories\IGenericRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UnitOfWorkRepositories\IUnitOfWorkRepository.cs" />
+    <Compile Include="UnitOfWorkRepositories\UnitOfWorkRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Data\Data.csproj">
+      <Project>{00DD374A-2644-4ECD-A679-C4EC6C9D46A8}</Project>
+      <Name>Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\202110210146022_Initial.resx">
-      <DependentUpon>202110210146022_Initial.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Data.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
@@ -13,6 +14,14 @@ namespace Data.DTOs
         public double EarthMass { get; set; }
         [Display(Name = "Distance to the Sun")]
         public string DistanceToTheSun { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public DateTime UpdatedAt { get; set; }
+    }
+
+    public class BodyDetailDTO : BodyDTO
+    {
+        public ComponentDTO Component { get; set; }
+        public RegionDTO Region { get; set; }
     }
 
     public class ManageBodyDTO
@@ -28,5 +37,8 @@ namespace Data.DTOs
         [Range(0.1, double.MaxValue)]
         [Display(Name = "Distance to the Sun")]
         public double DistanceToTheSun { get; set; }
+
+        public int ComponentId { get; set; }
+        public int RegionId { get; set; }
     }
 }
