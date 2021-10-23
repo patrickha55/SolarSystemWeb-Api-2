@@ -67,6 +67,7 @@ namespace WebApi_2.Controllers
             try
             {
                 var region = _mapper.Map<Region>(request);
+
                 region.CreatedAt = DateTime.Now;
                 region.UpdatedAt = DateTime.Now;
 
@@ -97,7 +98,10 @@ namespace WebApi_2.Controllers
 
                 var updateRegion = _mapper.Map(request, region);
                 
+                updateRegion.UpdatedAt = DateTime.Now;
+
                 _unitOfWorkRepository.Regions.Update(updateRegion);
+
                 await _unitOfWorkRepository.Save();
 
                 return StatusCode(HttpStatusCode.NoContent);
