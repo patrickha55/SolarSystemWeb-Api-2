@@ -14,6 +14,8 @@ namespace Data.DTOs
         public double EarthMass { get; set; }
         [Display(Name = "Distance to the Sun")]
         public string DistanceToTheSun { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public DateTime UpdatedAt { get; set; }
         public Component Component { get; set; }
         public Region Region { get; set; }
     }
